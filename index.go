@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"fmt" 
 	"time"
 )
@@ -75,6 +76,11 @@ func main(){
 	eighthDemo_t := time.Now()
 	
 	fmt.Println(eighthDemo_t)
+	
+	fmt.Println("============Nineth Demo===========")
+	os.Setenv("FOO", "1")
+	fmt.Println("FOO:", os.Getenv("FOO"))
+	fmt.Println("BAR:", os.Getenv("BAR"))
 }
 
 
@@ -82,4 +88,16 @@ func add(num1, num2 int) int {
 	var result int
 	result = num1 + num2
 	return result
+}
+
+//A function that finds key using value, for map
+func mapkey(m map[string]int, value int) (key string, ok bool) {
+  for k, v := range m {
+    if v == value { 
+      key = k
+      ok = true
+      return
+    }
+  }
+  return
 }
